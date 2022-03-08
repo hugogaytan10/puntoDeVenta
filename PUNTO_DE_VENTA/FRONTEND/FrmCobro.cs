@@ -214,10 +214,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb20_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 20;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if(txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 20;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -229,10 +235,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb50_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 50;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 50;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -244,10 +256,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb500_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 500;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 500;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -259,10 +277,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb100_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 100;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 100;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -274,10 +298,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb200_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 200;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 200;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -289,10 +319,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb1000_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 1000;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 1000;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -304,10 +340,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb1_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 1;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 1;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -319,10 +361,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb2_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 2;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 2;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -334,10 +382,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb5_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 5;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 5;
                 txtRecibido.Text = dinero.ToString();
             }
             else
@@ -349,10 +403,16 @@ namespace PUNTO_DE_VENTA.FRONTEND
 
         private void pb10_Click(object sender, EventArgs e)
         {
-            if (txtRecibido.Text != "")
+            if (txtRecibido.Text != "" && rb_sumar.Checked == true)
             {
                 int dinero = Convert.ToInt32(txtRecibido.Text);
                 dinero += 10;
+                txtRecibido.Text = dinero.ToString();
+            }
+            if (txtRecibido.Text != "" && rb_restar.Checked == true)
+            {
+                int dinero = Convert.ToInt32(txtRecibido.Text);
+                dinero -= 10;
                 txtRecibido.Text = dinero.ToString();
             }
             else

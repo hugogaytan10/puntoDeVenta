@@ -141,7 +141,7 @@ namespace PUNTO_DE_VENTA
                     Frm_validar_usuario validar = new Frm_validar_usuario();
                     validar.ShowDialog();
                     //SI VALIDA EL USUARIO Y ES ADMINISTRADOR ENTONCES PUEDE PASAR HACER CORTE 
-                    if (FrmVentas.tipo_usuario == "1")
+                    if (FrmVentas.validar_usuario == "1")
                     {
                         //PASAMOS LA HORA DE INICIO DE ESTE CORTE DE CAJA
                         string fecha_inicio = FrmVentas.fecha_inicial_corte_caja;
@@ -149,7 +149,7 @@ namespace PUNTO_DE_VENTA
                         ventanas_nuevas(cierre);
                         cierre.dinero(fecha_inicio);
                         //LE DEVOLVEMOS UN VALOR CERO PARA QUE NO ENTRE SIEMPRE AQUI SINO QUE HAGA LA CONSULTA
-                        FrmVentas.tipo_usuario = "0";
+                        FrmVentas.validar_usuario = "0";
                     }
                     
                     

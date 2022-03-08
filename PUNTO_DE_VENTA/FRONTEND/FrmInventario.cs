@@ -15,6 +15,7 @@ namespace PUNTO_DE_VENTA
 {
     public partial class FrmInventario : Form
     {
+        public int bandera = 0;
         public FrmInventario()
         {
             InitializeComponent();
@@ -23,27 +24,62 @@ namespace PUNTO_DE_VENTA
 
         private void btn_todo_Click(object sender, EventArgs e)
         {
-            DAOproductos daop = new DAOproductos();
-            dtg_stock.DataSource = daop.obtenerTodosLosProductos();
+            
+            if(bandera == 0)
+            {
+                DAOproductos daop = new DAOproductos();
+                dtg_stock.DataSource = daop.obtenerTodosLosProductos();
+                agregar_columnas();
+            }
+            else
+            {
+                quitar_columnas();
+                DAOproductos daop = new DAOproductos();
+                dtg_stock.DataSource = daop.obtenerTodosLosProductos();
+                agregar_columnas();
+            }
         }
 
         private void btn_codigo_Click(object sender, EventArgs e)
         {
             if(txtCodigo.Text != "")
             {
-                DAOproductos daop = new DAOproductos();
-                clsProductos p = new clsProductos();
-                p.Codigo = txtCodigo.Text;
-                
-                if (daop.obtenerUnProducto(p))
+                if(bandera == 0)
                 {
-                    dtg_stock.DataSource = daop.consultarProducto(p);
+                    DAOproductos daop = new DAOproductos();
+                    clsProductos p = new clsProductos();
+                    p.Codigo = txtCodigo.Text;
 
+                    if (daop.obtenerUnProducto(p))
+                    {
+                        dtg_stock.DataSource = daop.consultarProducto(p);
+                        agregar_columnas();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("El producto no se encuentra en la base de datos");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El producto no se encuentra en la base de datos");
+                    DAOproductos daop = new DAOproductos();
+                    clsProductos p = new clsProductos();
+                    p.Codigo = txtCodigo.Text;
+
+                    if (daop.obtenerUnProducto(p))
+                    {
+                        quitar_columnas();
+                        dtg_stock.DataSource = daop.consultarProducto(p);
+                        agregar_columnas();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("El producto no se encuentra en la base de datos");
+                    }
                 }
+                
                 txtCodigo.Text = "";
             }
             else
@@ -57,18 +93,39 @@ namespace PUNTO_DE_VENTA
         {
             if (txtNombre.Text != "")
             {
-                DAOproductos daop = new DAOproductos();
-                clsProductos p = new clsProductos();
-                p.NombreProducto = txtNombre.Text;
-                if (daop.buscarPorNombre(p))
+                if(bandera == 0)
                 {
-                    dtg_stock.DataSource = daop.obtenerProductoPorNombre(p);
-
+                    DAOproductos daop = new DAOproductos();
+                    clsProductos p = new clsProductos();
+                    p.NombreProducto = txtNombre.Text;
+                    if (daop.buscarPorNombre(p))
+                    {
+                        
+                        dtg_stock.DataSource = daop.obtenerProductoPorNombre(p);
+                        agregar_columnas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El producto no se encuentra en la base de datos");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El producto no se encuentra en la base de datos");
+                    DAOproductos daop = new DAOproductos();
+                    clsProductos p = new clsProductos();
+                    p.NombreProducto = txtNombre.Text;
+                    if (daop.buscarPorNombre(p))
+                    {
+                        quitar_columnas();
+                        dtg_stock.DataSource = daop.obtenerProductoPorNombre(p);
+                        agregar_columnas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El producto no se encuentra en la base de datos");
+                    }
                 }
+                
                 txtNombre.Text = "";
             }
             else
@@ -228,7 +285,7 @@ namespace PUNTO_DE_VENTA
             dtg_stock.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 12);
             dtg_stock.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#20A022");
             dtg_stock.EnableHeadersVisualStyles = false;
-            dtg_stock.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15);
+            dtg_stock.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10);
 
 
         }
@@ -238,9 +295,126 @@ namespace PUNTO_DE_VENTA
             txtCodigo.Text = "BUSCAR POR CODIGO";
         }
 
+        //AGREGAMOS COLUMNAS
+        private void agregar_columnas()
+        {
+            //boton de modificar
+            DataGridViewButtonColumn btn_modificar = new DataGridViewButtonColumn();
+            btn_modificar.Name = "btn_modi";
+            btn_modificar.Text = "Modificar";
+            btn_modificar.HeaderText = "Accion";
+            btn_modificar.DefaultCellStyle.BackColor = Color.Green;
+            btn_modificar.UseColumnTextForButtonValue = true;
+            dtg_stock.Columns.Add(btn_modificar);
+            //boton de eliminar
+            DataGridViewButtonColumn btn_eliminar = new DataGridViewButtonColumn();
+            btn_eliminar.Name = "btn_modi";
+            btn_eliminar.Text = "Eliminar";
+            btn_eliminar.HeaderText = "Accion";
+            btn_eliminar.DefaultCellStyle.BackColor = Color.Red;
+            btn_eliminar.UseColumnTextForButtonValue = true;    
+            dtg_stock.Columns.Add(btn_eliminar);
+            bandera++;
+        }
+        //QUITAMOS COLUMNA
+        private void quitar_columnas()
+        {
+            dtg_stock.Columns.RemoveAt(6);
+            dtg_stock.Columns.RemoveAt(5);
+        }
+
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pnInventario_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dtg_stock_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 5)
+            {
+                //RESCATAR LOS VALORES DE LA CELDA SELECCIONADA
+                try
+                {
+                    List<clsProductos> lista = new List<clsProductos>();
+                    //RECUPERAMOS EL SELECCIONADO PARA ELIMINARLO
+                    int index = e.RowIndex;
+
+                    foreach (DataGridViewRow row in dtg_stock.Rows)
+                    {
+                        // SI ESTA SELECCIONADO LO ELIMINAMOS
+                        if (row.Index == index)
+                        {
+                            //RESCATAMOS EL PRODUCTOS SELECIONADOS
+                            clsProductos p = new clsProductos();
+
+                            p.Codigo = row.Cells["Codigo"].Value.ToString();
+                            p.NombreProducto = row.Cells["NombreProducto"].Value.ToString();
+                            p.Cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value.ToString());
+                            p.PrecioUnitario = Convert.ToDouble(row.Cells["PrecioUnitario"].Value.ToString());
+                            p.SubTotal = Convert.ToDouble(row.Cells["SubTotal"].Value.ToString());
+                            DAOproductos daop = new DAOproductos();
+
+                            //AHORA CON LOS DATOS SE LOS PASAMOS AL SIGUIENTE FORMULARIO
+                            FrmModificarProducto vModificar = new FrmModificarProducto();
+                            //le pasamos los parametros al metodo correspondiente
+                            vModificar.ingresar_datos(p.Codigo, p.NombreProducto, p.Cantidad.ToString(), p.PrecioUnitario.ToString());
+                            //mostramos la ventana con los datos
+                            vModificar.Show();
+
+                        }
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            if(e.ColumnIndex == 6)
+            {
+                //RESCATAR LOS VALORES DE LA CELDA SELECCIONADA
+                try
+                {
+                    List<clsProductos> lista = new List<clsProductos>();
+                    //RECUPERAMOS EL SELECCIONADO PARA ELIMINARLO
+                    int index = e.RowIndex;
+
+                    foreach (DataGridViewRow row in dtg_stock.Rows)
+                    {
+                        // SI ESTA SELECCIONADO LO ELIMINAMOS
+                        if (row.Index == index)
+                        {
+                            clsProductos p = new clsProductos();
+
+                            p.Codigo = row.Cells["Codigo"].Value.ToString();
+                            p.NombreProducto = row.Cells["NombreProducto"].Value.ToString();
+                            DAOproductos daop = new DAOproductos();
+                            if (daop.deleteProduct(p))
+                            {
+
+                                MessageBox.Show("PRODUCTO: " + p.NombreProducto + " AH SIDO ELIMINADO");
+                            }
+                            else
+                            {
+                                MessageBox.Show("INTENTE NUEVAMENTE");
+                            }
+
+                        }
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
         }
     }
 }

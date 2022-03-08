@@ -21,6 +21,7 @@ namespace PUNTO_DE_VENTA
         public static string fecha_inicial_corte_caja;
         public static string tipo_usuario;
         public static string nombre_usuario;
+        public static string validar_usuario;
         public FrmVentas()
         {
             InitializeComponent();

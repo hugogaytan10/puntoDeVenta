@@ -52,19 +52,19 @@ namespace PUNTO_DE_VENTA.FRONTEND
                 if (tipo_usuario == "")
                 {
                     MessageBox.Show("ACCESO DENEGADO");
-                    FrmVentas.tipo_usuario = "0";
+                    FrmVentas.validar_usuario = "0";
                     
                 }
                 else if(tipo_usuario == "1")
                 {
                     //SI es un administrador entonces si puede cerrar la caja
-                    FrmVentas.tipo_usuario = "1";
+                    FrmVentas.validar_usuario = "1";
                     this.Close();
                 }
                 //SI DEVUELVE UN 2 ES UN CAJERO Y NO PUEDE HACER EL CORTE EL MISMO
                 else if(tipo_usuario == "2")
                 {
-                    FrmVentas.tipo_usuario = "2";
+                    FrmVentas.validar_usuario = "2";
                     MessageBox.Show("ACCESO DENEGADO");
                     this.Close();
                 }

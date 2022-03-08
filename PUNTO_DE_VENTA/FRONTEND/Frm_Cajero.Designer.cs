@@ -50,8 +50,9 @@ namespace PUNTO_DE_VENTA
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 661);
+            this.panel1.Size = new System.Drawing.Size(281, 814);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -67,9 +68,10 @@ namespace PUNTO_DE_VENTA
             this.btn_cierre_caja.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_cierre_caja.IconSize = 40;
             this.btn_cierre_caja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cierre_caja.Location = new System.Drawing.Point(3, 412);
+            this.btn_cierre_caja.Location = new System.Drawing.Point(4, 507);
+            this.btn_cierre_caja.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_cierre_caja.Name = "btn_cierre_caja";
-            this.btn_cierre_caja.Size = new System.Drawing.Size(191, 50);
+            this.btn_cierre_caja.Size = new System.Drawing.Size(276, 62);
             this.btn_cierre_caja.TabIndex = 5;
             this.btn_cierre_caja.Text = "Cierre de caja";
             this.btn_cierre_caja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -90,9 +92,10 @@ namespace PUNTO_DE_VENTA
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 40;
             this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(2, 81);
+            this.iconButton4.Location = new System.Drawing.Point(3, 100);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(191, 52);
+            this.iconButton4.Size = new System.Drawing.Size(277, 64);
             this.iconButton4.TabIndex = 1;
             this.iconButton4.Text = "Buscar Producto";
             this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -113,9 +116,10 @@ namespace PUNTO_DE_VENTA
             this.btn_ventas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_ventas.IconSize = 40;
             this.btn_ventas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ventas.Location = new System.Drawing.Point(4, 199);
+            this.btn_ventas.Location = new System.Drawing.Point(5, 245);
+            this.btn_ventas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_ventas.Name = "btn_ventas";
-            this.btn_ventas.Size = new System.Drawing.Size(191, 50);
+            this.btn_ventas.Size = new System.Drawing.Size(275, 62);
             this.btn_ventas.TabIndex = 2;
             this.btn_ventas.Text = "Ventas";
             this.btn_ventas.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -136,9 +140,10 @@ namespace PUNTO_DE_VENTA
             this.btn_inventario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_inventario.IconSize = 40;
             this.btn_inventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_inventario.Location = new System.Drawing.Point(2, 307);
+            this.btn_inventario.Location = new System.Drawing.Point(3, 378);
+            this.btn_inventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_inventario.Name = "btn_inventario";
-            this.btn_inventario.Size = new System.Drawing.Size(191, 50);
+            this.btn_inventario.Size = new System.Drawing.Size(277, 62);
             this.btn_inventario.TabIndex = 3;
             this.btn_inventario.Text = "Inventario";
             this.btn_inventario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,22 +157,24 @@ namespace PUNTO_DE_VENTA
             this.pnContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(56)))));
             this.pnContenedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnContenedor.Location = new System.Drawing.Point(200, 0);
+            this.pnContenedor.Location = new System.Drawing.Point(281, 0);
+            this.pnContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnContenedor.Name = "pnContenedor";
-            this.pnContenedor.Size = new System.Drawing.Size(1000, 661);
+            this.pnContenedor.Size = new System.Drawing.Size(1319, 814);
             this.pnContenedor.TabIndex = 5;
             this.pnContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // Frm_Cajero
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(1200, 661);
+            this.ClientSize = new System.Drawing.Size(1600, 814);
             this.Controls.Add(this.pnContenedor);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_Cajero";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Cajero_FormClosing);

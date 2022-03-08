@@ -14,7 +14,7 @@ namespace PUNTO_DE_VENTA.BACKEND
         public static bool conectar()
         {
             
-            string conexion = "server = 192.168.8.3; database = punto_venta; " + "uid = cris; pwd = 1234;";
+            string conexion = ;
             try
             {
                 conect = new MySqlConnection(conexion);
